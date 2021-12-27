@@ -1,0 +1,16 @@
+.wcm-all-content > #wcm-content {
+    background-color: #fff!important
+}
+
+.wcm-all-content .wcm_widget {
+    -webkit-box-shadow: none!important; 
+     box-shadow: none!important; 
+}
+
+body {
+    background-color: #fff!important;
+}
+
+.wcm-all-content {
+    background-color: #fff!important;
+}

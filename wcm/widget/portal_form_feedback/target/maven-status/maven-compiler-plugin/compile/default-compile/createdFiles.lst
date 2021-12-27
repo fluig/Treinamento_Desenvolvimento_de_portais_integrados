@@ -1,0 +1,6 @@
+com\fluig\ApplicationConfig.class
+com\fluig\RestConstant.class
+com\fluig\ActivationClass.class
+com\fluig\kitintranet\news\proxy\rest\FeedbackRest.class
+com\fluig\kitintranet\news\proxy\rest\TreinamentoRest.class
+com\fluig\ErrorStatus.class

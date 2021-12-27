@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<repositories>
+		<repository>
+			<id>nexus</id>
+			<name>fluig Nexus Repository</name>
+			<url>http://nexus.fluig.com/content/groups/public</url>
+		</repository>
+	</repositories>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.fluig</groupId>
+	<artifactId>portal_form_feedback</artifactId>
+	<version>1.0.0</version>
+	<packaging>war</packaging>
+	<name>Portal - Feedback</name>
+
+	<properties>
+        <artifact.version>1.7.1</artifact.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>        
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.fluig</groupId>
+            <artifactId>oauth-client</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fluig</groupId>
+            <artifactId>wcm-sdk-service</artifactId>
+            <scope>provided</scope>
+            <version>${artifact.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fluig</groupId>
+            <artifactId>wcm-common</artifactId>
+            <scope>provided</scope>
+            <version>${artifact.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fluig</groupId>
+            <artifactId>fluig-sdk-common</artifactId>
+            <scope>provided</scope>
+            <version>${artifact.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fluig</groupId>
+            <artifactId>fluig-sdk-api</artifactId>
+            <scope>provided</scope>
+            <version>${artifact.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fluig</groupId>
+            <artifactId>fluig-sdk-keyring</artifactId>
+            <version>${artifact.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+	        <groupId>com.fluig</groupId>
+	        <artifactId>wcm-core</artifactId>
+	        <version>${artifact.version}</version>
+	        <type>jar</type>
+	    </dependency>
+        
+	     <dependency>
+	        <groupId>com.fluig</groupId>
+	        <artifactId>ecm-ejb-api</artifactId>
+	        <version>${artifact.version}</version>
+	        <type>jar</type>
+	    </dependency>
+	    
+	    <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>oauth.signpost</groupId>
+			<artifactId>signpost-core</artifactId>
+			<version>1.2.1.1</version>
+		</dependency>
+        
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>fluig-sdk-keyring</artifactId>
+	        <version>${artifact.version}</version>
+			<scope>compile</scope>
+		</dependency>
+    
+    </dependencies>
+
+    <build>
+        <finalName>portal_form_feedback</finalName>
+	    <plugins>
+	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-war-plugin</artifactId>
+	            <configuration>
+	                <failOnMissingWebXml>false</failOnMissingWebXml>
+	                <archive>
+	                    <manifestEntries>
+	                        <Dependencies>org.slf4j, com.fluig.api, com.fluig.api.common</Dependencies>
+	                    </manifestEntries>
+	                </archive>
+	            </configuration>
+	        </plugin>
+	        <plugin>
+	            <groupId>net.alchim31.maven</groupId>
+	            <artifactId>yuicompressor-maven-plugin</artifactId>
+	            <executions>
+	                <execution>
+	                    <goals>
+	                        <goal>compress</goal>
+	                    </goals>
+	                </execution>
+	            </executions>
+	            <configuration>
+	                <nosuffix>false</nosuffix>
+	                <force>true</force>
+	                <linebreakpos>-1</linebreakpos>
+	                <disableOptimizations>false</disableOptimizations>
+	                <gzip>false</gzip>
+	                <jswarn>false</jswarn>
+	                <nomunge>true</nomunge>
+	                <preserveAllSemiColons>false</preserveAllSemiColons>
+	            </configuration>
+	        </plugin>
+	        <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<!-- Para o Fluig 1.6.5, deve ser alterado para versão 1.8 -->
+					<source>11</source>
+					<target>11</target>
+				</configuration>
+			</plugin>
+	    </plugins>
+
+    </build>
+
+    <description>Portal - Feedback</description>
+</project>
